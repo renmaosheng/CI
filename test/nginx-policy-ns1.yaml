@@ -1,0 +1,14 @@
+kind: NetworkPolicy
+apiVersion: extensions/v1beta1
+metadata:
+  name: access-nginx-ns1
+  namespace: default
+spec:
+  podSelector:
+    matchLabels:
+      run: nginx
+  ingress:
+    - from:
+      - namespaceSelector: 
+          matchLabels:
+            namespace: ns1

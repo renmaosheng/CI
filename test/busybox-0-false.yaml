@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox-0-false
+  namespace: default
+  labels:
+    access: "false"
+spec:
+  containers:
+  - image: busybox
+    command:
+      - sleep
+      - "10000"
+    imagePullPolicy: IfNotPresent
+    name: busybox-0-false
+  nodeSelector:
+    nodenum: "0"
